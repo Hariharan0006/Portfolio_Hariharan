@@ -8,24 +8,62 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
             
             // Toggle icon
-            const icon = mobileMenu.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-            }
+            const iconName = navLinks.classList.contains('active') ? 'x' : 'menu';
+            mobileMenu.innerHTML = `<i data-lucide="${iconName}"></i>`;
             lucide.createIcons();
         });
     }
+
+    // Close mobile menu after picking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!navLinks.classList.contains('active')) return;
+            navLinks.classList.remove('active');
+            mobileMenu.innerHTML = '<i data-lucide="menu"></i>';
+            lucide.createIcons();
+        });
+    });
+
+    // Project filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            projectCards.forEach(card => {
+                card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+            });
+        });
+    });
+
+    // Certificate lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const closeLightbox = () => lightbox.classList.remove('open');
+    document.querySelectorAll('.cert-thumb img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('open');
+        });
+    });
+    lightbox.addEventListener('click', e => {
+        if (e.target !== lightboxImg) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+    });
 
     // Header scroll background change
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.background = 'rgba(5, 8, 16, 0.95)';
+            header.style.background = '#ffffff';
             header.style.padding = '5px 0';
         } else {
-            header.style.background = 'rgba(5, 8, 16, 0.8)';
+            header.style.background = '#ffffff';
             header.style.padding = '0';
         }
     });

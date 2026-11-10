@@ -332,7 +332,9 @@ main {
 .project-card,
 .timeline-card,
 .cert-card,
-.contact-card {
+.contact-card,
+.about-facts,
+.focus-card {
     box-shadow: var(--shadow);
 }
 
@@ -364,10 +366,104 @@ section {
     gap: 3rem;
 }
 
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
 .about-text {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 1100px;
+}
+
+.about-now {
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.now-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 0.6rem;
+    border-radius: 50%;
+    background: #3fb06a;
+    box-shadow: 0 0 0 4px rgba(63, 176, 106, 0.18);
+    vertical-align: middle;
+}
+
+.about-facts {
+    list-style: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.6rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-facts li {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.about-facts svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--accent-color);
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.focus-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.8rem;
+    transition: var(--transition);
+}
+
+.focus-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-glow);
+}
+
+.focus-card .project-icon {
+    display: inline-flex;
+    margin-bottom: 1rem;
+}
+
+.focus-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.focus-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 968px) {
+    .about-grid,
+    .focus-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Projects Section */

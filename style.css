@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #ffffff;
-    --bg-soft: #fff8f1;
-    --card-bg: #ffffff;
+    --bg-color: #e6e8eb;
+    --bg-soft: #eef0f2;
+    --card-bg: #f5f6f8;
     --text-primary: #2a1a0e;
     --text-secondary: #6e5a4a;
     --accent-color: #bf5a12;
@@ -12,9 +12,9 @@
     --accent-gradient: linear-gradient(135deg, #ffc48f 0%, #ff9a4d 100%);
     --text-gradient: linear-gradient(135deg, #f08a33 0%, #c9530f 100%);
     --on-accent: #3a1c05;
-    --border: #f6e2cf;
+    --border: #d5d8dd;
     --shadow: 0 10px 30px rgba(214, 120, 40, 0.08);
-    --header-bg: #ffffff;
+    --header-bg: #e6e8eb;
     --font-main: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -326,7 +326,7 @@ nav {
 
 /* Sections General */
 main {
-    background: linear-gradient(180deg, #ffffff 0%, #fff4e8 18%, #ffe9d4 42%, #fff1e2 66%, #ffe4cc 88%, #fff3e6 100%);
+    background: linear-gradient(180deg, #eceef1 0%, #efebe7 18%, #f4e2d2 42%, #edebe9 66%, #f3dfcc 88%, #eceef1 100%);
 }
 
 .project-card,
@@ -537,7 +537,7 @@ section {
     height: 16px;
     border-radius: 50%;
     background: var(--accent-gradient);
-    box-shadow: 0 0 0 5px #ffffff, 0 0 18px var(--accent-glow);
+    box-shadow: 0 0 0 5px var(--card-bg), 0 0 18px var(--accent-glow);
 }
 
 .timeline-card {
@@ -710,7 +710,7 @@ section {
     height: 44px;
     border-radius: 50%;
     border: 0;
-    background: #fff;
+    background: var(--card-bg);
     color: var(--text-primary);
     cursor: pointer;
     display: flex;
